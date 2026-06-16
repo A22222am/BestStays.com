@@ -72,7 +72,6 @@
             flex-direction: column;
             justify-content: space-between;
             text-align: center;
-            /* SEBELUM PUSH GITHUB: Pastikan nama fail gambar ni betul (case-sensitive) */
             background-image: linear-gradient(rgba(18, 19, 22, 0.4), rgba(18, 19, 22, 0.5)), url('mainpage.png');
             background-size: cover;
             background-position: center;
@@ -125,19 +124,45 @@
             letter-spacing: 4px;
         }
 
-        /* SECTION 2: SLAID KEDUA (Gambar Kedua) */
+        /* SECTION 2: VIDEO BACKGROUND CONTAINER */
         .video-section {
+            position: relative;
             height: 100vh;
+            width: 100%;
             display: flex;
             align-items: center;
-            /* MASUKKAN nama fail gambar kedua kau dekat url('...') bawah ni */
-            background-image: linear-gradient(rgba(18, 19, 22, 0.6), rgba(18, 19, 22, 0.7)), url('secondpage.png');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
+            overflow: hidden;
         }
 
+        /* MEMAKSA VIDEO DUDUK DI BELAKANG & KEMBANG IKUT SKRIN */
+        .video-bg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: 1;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+        }
+
+        /* LAPISAN GELAP DI ATAS VIDEO SUPAYA TULISAN JELAS */
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(18, 19, 22, 0.5), rgba(18, 19, 22, 0.7));
+            z-index: 2;
+        }
+
+        /* KANDUNGAN TULISAN DUDUK DI ATAS VIDEO DAN OVERLAY */
         .video-content-holder {
+            position: relative;
+            z-index: 3;
             width: 100%;
             padding-left: 5%;
             padding-right: 5%;
@@ -150,7 +175,7 @@
             line-height: 1.1; 
             letter-spacing: -1px;
             margin-bottom: 35px;
-            text-shadow: 0 2px 15px rgba(0,0,0,0.5);
+            text-shadow: 0 2px 15px rgba(0,0,0,0.6);
             max-width: 900px;
         }
 
@@ -235,8 +260,19 @@
             </div>
         </section>
 
-        <!-- SLAID 2: DESIGN IKUT CONTOH GAMBAR KAU (CLEAN) -->
+        <!-- SLAID 2: LATAR BELAKANG VIDEO (videopage2.mov) -->
         <section id="video-section" class="video-section">
+            
+            <!-- Elemen video dipanggil secara lokal -->
+            <video autoplay muted loop playsinline class="video-bg">
+                <source src="videopage2.mov" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            
+            <!-- Overlay Gelap -->
+            <div class="video-overlay"></div>
+
+            <!-- Kandungan Atas Video -->
             <div class="video-content-holder">
                 <h2 class="aesthetic-quote">
                     Urban escape.<br>
