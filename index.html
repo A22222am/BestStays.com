@@ -4,22 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Beststays.com - Stay Comfortably, Travel Happily</title>
-    <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Google Fonts (Font Serif Luxury & Sans-Serif Minimalis) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
-    <!-- Custom CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Montserrat:wght@200;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <!-- Navigation Menu (Minimalis & Transparent Atas Gambar) -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top custom-navbar">
-        <div class="container-fluid px-md-5">
+        <div class="container px-md-4">
             <a class="navbar-brand branding-left" href="index.html">
-                <span class="circle-icon"></span> Beststays.com
+                <span class="circle-icon"></span> BESTSTAYS
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -35,46 +31,37 @@
         </div>
     </nav>
 
-    <!-- Main Content Section -->
     <main>
         
-        <!-- SECTION 1: HERO BANNER (Gambar Pertama - Penuh Skrin) -->
-        <section class="hero-section text-center">
-            <!-- Gambar latar belakang premium -->
-            <div class="hero-bg" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1618773928121-c32242e63f39?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');"></div>
+        <section class="hero-section">
+            <div class="hero-bg" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');"></div>
             
-            <div class="hero-content d-flex flex-column justify-content-between h-100 py-5">
-                <!-- Subtitle Atas -->
+            <div class="hero-content d-flex flex-column justify-content-between h-100 container py-5 text-center">
                 <div class="mt-5 pt-5">
                     <p class="subtitle-top">PREMIUM ACCOMMODATION</p>
                     <p class="subtitle-sub">Malacca, Malaysia</p>
                 </div>
                 
-                <!-- Nama Website (Tulisan Besar Estetik Serif) -->
                 <div class="main-title-box">
                     <h1 class="display-1 main-heading">BESTSTAYS<br>HOMESTAY</h1>
                 </div>
                 
-                <!-- Butang Slaid Ke Bawah / Pautan -->
                 <div class="mb-4">
                     <a href="#video-section" class="book-stay-btn text-uppercase">View Experience <span class="arrow">→</span></a>
                 </div>
             </div>
         </section>
 
-        <!-- SECTION 2: VIDEO/URBAN ESCAPE (Gambar Kedua - Muncul bila skrol ke bawah) -->
         <section id="video-section" class="video-section">
             <div class="video-container">
                 <div class="video-overlay"></div>
-                <!-- Video Suasana Homestay/Resort Slaid Kedua -->
                 <video autoplay muted loop playsinline class="bg-video">
-                    <source src="https://assets.mixkit.co/videos/preview/mixkit-luxury-resort-with-a-swimming-pool-41618-large.mp4" type="video/mp4">
+                    <source src="https://player.vimeo.com/external/435674703.sd.mp4?s=7fdf70dc198fa10b9a9103e944747dbcc7517173&profile_id=165&oauth2_token_id=57447761" type="video/mp4">
                 </video>
             </div>
 
-            <!-- Kandungan Teks Atas Video (Ikut gaya hiasan teks gambar kedua kau) -->
-            <div class="video-content-inner">
-                <div class="container h-100 d-flex flex-column justify-content-center align-items-start text-start px-md-5">
+            <div class="video-content-inner d-flex align-items-center">
+                <div class="container px-md-5 text-start">
                     <div class="video-pause-icon">‖</div>
                     <h2 class="aesthetic-quote">
                         Stay Comfortably.<br>
@@ -82,14 +69,12 @@
                         Welcome to Beststays.
                     </h2>
                     
-                    <!-- Call To Action (CTA) Buttons -->
-                    <div class="mt-4">
-                        <a href="listings.html" class="btn-aesthetic me-3">View Homestays</a>
+                    <div class="mt-4 pt-2 d-flex flex-wrap gap-3">
+                        <a href="listings.html" class="btn-aesthetic">View Homestays</a>
                         <a href="booking.html" class="btn-aesthetic btn-outline">Check Availability</a>
                     </div>
                     
-                    <!-- Progress Bar Player Simulation (Sama macam gambar contoh) -->
-                    <div class="video-controls-bar w-100 d-flex align-items-center mt-5">
+                    <div class="video-controls-bar d-flex align-items-center mt-5">
                         <div class="progress-line-container flex-grow-1 me-3">
                             <div class="progress-line"></div>
                             <div class="progress-dot"></div>
@@ -102,12 +87,10 @@
 
     </main>
 
-    <!-- Footer Ringkas & Estetik -->
     <footer class="custom-footer text-center py-4">
         <p class="mb-0">&copy; 2026 Beststays.com. BERC2393 Assignment.</p>
     </footer>
 
-    <!-- Bootstrap 5 JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
