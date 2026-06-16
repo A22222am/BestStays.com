@@ -4,93 +4,224 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Beststays.com - Stay Comfortably, Travel Happily</title>
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Montserrat:wght@200;400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top custom-navbar">
-        <div class="container px-md-4">
-            <a class="navbar-brand branding-left" href="index.html">
-                <span class="circle-icon"></span> BESTSTAYS
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto text-uppercase">
-                    <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="listings.html">Homestays</a></li>
-                    <li class="nav-item"><a class="nav-link" href="reviews.html">Reviews</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html">About & Contact</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <style>
+        /* 1. ASAS HALAMAN GELAP (DIJAMIN TAKKAN KELUAR PUTIH) */
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #121316 !important; /* Hitam arang premium */
+            font-family: 'Montserrat', sans-serif;
+            color: #ffffff;
+            scroll-behavior: smooth;
+        }
 
-    <main>
-        
-        <section class="hero-section">
-            <div class="hero-bg" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');"></div>
-            
-            <div class="hero-content d-flex flex-column justify-content-between h-100 container py-5 text-center">
-                <div class="mt-5 pt-5">
-                    <p class="subtitle-top">PREMIUM ACCOMMODATION</p>
-                    <p class="subtitle-sub">Malacca, Malaysia</p>
-                </div>
-                
-                <div class="main-title-box">
-                    <h1 class="display-1 main-heading">BESTSTAYS<br>HOMESTAY</h1>
-                </div>
-                
-                <div class="mb-4">
-                    <a href="#video-section" class="book-stay-btn text-uppercase">View Experience <span class="arrow">→</span></a>
-                </div>
-            </div>
-        </section>
+        h1, h2, .subtitle-top {
+            font-family: 'Cinzel', serif;
+            letter-spacing: 3px;
+        }
 
-        <section id="video-section" class="video-section">
-            <div class="video-container">
-                <div class="video-overlay"></div>
-                <video autoplay muted loop playsinline class="bg-video">
-                    <source src="https://player.vimeo.com/external/435674703.sd.mp4?s=7fdf70dc198fa10b9a9103e944747dbcc7517173&profile_id=165&oauth2_token_id=57447761" type="video/mp4">
-                </video>
-            </div>
+        /* 2. MENU NAVBAR (IKUT SENARAI FAIL PROJEK KAU) */
+        .custom-navbar {
+            background-color: rgba(18, 19, 22, 0.95) !important; /* Latar belakang menu gelap pekat */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 15px;
+            padding-bottom: 15px;
+        }
 
-            <div class="video-content-inner d-flex align-items-center">
-                <div class="container px-md-5 text-start">
-                    <div class="video-pause-icon">‖</div>
-                    <h2 class="aesthetic-quote">
-                        Stay Comfortably.<br>
-                        Travel Happily.<br>
-                        Welcome to Beststays.
-                    </h2>
-                    
-                    <div class="mt-4 pt-2 d-flex flex-wrap gap-3">
-                        <a href="listings.html" class="btn-aesthetic">View Homestays</a>
-                        <a href="booking.html" class="btn-aesthetic btn-outline">Check Availability</a>
-                    </div>
-                    
-                    <div class="video-controls-bar d-flex align-items-center mt-5">
-                        <div class="progress-line-container flex-grow-1 me-3">
-                            <div class="progress-line"></div>
-                            <div class="progress-dot"></div>
-                        </div>
-                        <div class="mute-icon">🔊</div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        .custom-navbar .navbar-brand {
+            font-family: 'Cinzel', serif;
+            font-weight: 600;
+            color: #ffffff !important;
+            letter-spacing: 2px;
+            font-size: 1.1rem;
+        }
 
-    </main>
+        .custom-navbar .nav-link {
+            color: rgba(255, 255, 255, 0.65) !important;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            font-weight: 400;
+            padding-left: 15px !important;
+            padding-right: 15px !important;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
 
-    <footer class="custom-footer text-center py-4">
-        <p class="mb-0">&copy; 2026 Beststays.com. BERC2393 Assignment.</p>
-    </footer>
+        .custom-navbar .nav-link:hover, 
+        .custom-navbar .nav-link.active {
+            color: #ffffff !important;
+            font-weight: 500;
+        }
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+        /* BANNER UTAMA (SLAID 1) */
+        .hero-section {
+            height: 100vh;
+            display: flex;
+            flex-column: justify-content-between;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), #1a1c23; /* Backup warna jika gambar gagal load */
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            padding-top: 100px;
+        }
+
+        .subtitle-top {
+            font-size: 0.9rem;
+            font-weight: 400;
+            letter-spacing: 6px;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 5px;
+        }
+
+        .subtitle-sub {
+            font-size: 0.8rem;
+            font-weight: 300;
+            letter-spacing: 3px;
+            opacity: 0.5;
+            margin-bottom: 40px;
+        }
+
+        .main-heading {
+            font-size: clamp(2.5rem, 8vw, 5.5rem);
+            font-weight: 400;
+            line-height: 1.2;
+            letter-spacing: 10px;
+            margin-bottom: 50px;
+        }
+
+        .view-exp-link {
+            color: #ffffff !important;
+            text-decoration: none;
+            font-size: 0.75rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+            padding-bottom: 5px;
+            transition: 0.3s ease;
+        }
+
+        .view-exp-link:hover {
+            border-bottom-color: #ffffff;
+            letter-spacing: 4px;
+        }
+
+        /* BANNER VIDEO / URBAN ESCAPE (SLAID 2) */
+        .video-section {
+            height: 100vh;
+            position: relative;
+            background-color: #16181d; /* Warna backup gelap gelap */
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .video-bg-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .video-bg-container video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.35);
+        }
+
+        .video-content-holder {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            padding-left: 10%;
+            padding-right: 10%;
+        }
+
+        .pause-indicator {
+            font-size: 1.2rem;
+            opacity: 0.5;
+            margin-bottom: 20px;
+        }
+
+        .aesthetic-quote {
+            font-size: clamp(1.8rem, 5vw, 3.5rem);
+            font-weight: 400;
+            line-height: 1.3;
+            margin-bottom: 40px;
+        }
+
+        /* BUTANG CTA PETAK DIJAMIN CANTIK (BUANG TEKS BIRU HUDUH) */
+        .btn-premium {
+            display: inline-block;
+            padding: 14px 35px;
+            background-color: #ffffff !important;
+            color: #121316 !important;
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-decoration: none !important;
+            border: 1px solid #ffffff;
+            transition: all 0.3s ease;
+        }
+
+        .btn-premium:hover {
+            background-color: transparent !important;
+            color: #ffffff !important;
+        }
+
+        .btn-premium.btn-outline {
+            background-color: transparent !important;
+            color: #ffffff !important;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            margin-left: 15px;
+        }
+
+        .btn-premium.btn-outline:hover {
+            border-color: #ffffff;
+            background-color: #ffffff !important;
+            color: #121316 !important;
+        }
+
+        /* SIMULASI CONTROL PLAYER (GARISAN BAWAH) */
+        .player-bar-container {
+            margin-top: 60px;
+            max-width: 500px;
+            display: flex;
+            align-items: center;
+        }
+
+        .fake-progress-line {
+            height: 2px;
+            background-color: rgba(255, 255, 255, 0.15);
+            position: relative;
+            flex-grow: 1;
+            margin-right: 20px;
+        }
+
+        .fake-progress-fill {
+            width: 40%;
+            height: 100%;
+            background-color: #ffffff;
+            position: relative;
+        }
+
+        .fake-progress-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #ffffff;
+            border-radius: 50%;
