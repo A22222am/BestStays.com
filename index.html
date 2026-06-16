@@ -31,13 +31,13 @@
             letter-spacing: 3px;
         }
 
-        /* NAVBAR KEKAL DI ATAS DAN WAJIB KELIHATAN */
+        /* NAVBAR KEKAL DI ATAS DAN SOLID */
         .custom-navbar {
-            background-color: #121316 !important; /* Gunakan warna solid terus supaya tak halimunan */
+            background-color: #121316 !important;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             padding-top: 15px;
             padding-bottom: 15px;
-            z-index: 9999 !important; /* Memaksa menu duduk di lapisan paling depan */
+            z-index: 9999 !important;
         }
 
         .custom-navbar .navbar-brand {
@@ -65,19 +65,19 @@
             font-weight: 500;
         }
 
-        /* SECTION 1: HERO BANNER */
+        /* SECTION 1: HERO BANNER (Gambar Pertama) */
         .hero-section {
             height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             text-align: center;
-            /* Pautan gambar relatif untuk GitHub Pages */
+            /* SEBELUM PUSH GITHUB: Pastikan nama fail gambar ni betul (case-sensitive) */
             background-image: linear-gradient(rgba(18, 19, 22, 0.4), rgba(18, 19, 22, 0.5)), url('mainpage.png');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            padding-top: 120px; /* Jarak dari top navbar */
+            padding-top: 120px;
         }
 
         .subtitle-top {
@@ -125,11 +125,12 @@
             letter-spacing: 4px;
         }
 
-        /* SECTION 2: SLAID KEDUA */
+        /* SECTION 2: SLAID KEDUA (Gambar Kedua) */
         .video-section {
             height: 100vh;
             display: flex;
             align-items: center;
+            /* MASUKKAN nama fail gambar kedua kau dekat url('...') bawah ni */
             background-image: linear-gradient(rgba(18, 19, 22, 0.6), rgba(18, 19, 22, 0.7)), url('secondpage.png');
             background-size: cover;
             background-position: center;
@@ -138,22 +139,19 @@
 
         .video-content-holder {
             width: 100%;
-            padding-left: 10%;
-            padding-right: 10%;
-        }
-
-        .pause-indicator {
-            font-size: 1.2rem;
-            opacity: 0.6;
-            margin-bottom: 20px;
+            padding-left: 5%;
+            padding-right: 5%;
         }
 
         .aesthetic-quote {
-            font-size: clamp(1.8rem, 5vw, 3.2rem);
-            font-weight: 400;
-            line-height: 1.4;
-            margin-bottom: 40px;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+            font-family: 'Cinzel', serif; 
+            font-size: clamp(2.5rem, 6.5vw, 4.8rem); 
+            font-weight: 400; 
+            line-height: 1.1; 
+            letter-spacing: -1px;
+            margin-bottom: 35px;
+            text-shadow: 0 2px 15px rgba(0,0,0,0.5);
+            max-width: 900px;
         }
 
         /* BUTANG PREMIUM */
@@ -189,44 +187,6 @@
             color: #121316 !important;
         }
 
-        .player-bar-container {
-            margin-top: 60px;
-            max-width: 500px;
-            display: flex;
-            align-items: center;
-        }
-
-        .fake-progress-line {
-            height: 2px;
-            background-color: rgba(255, 255, 255, 0.2);
-            position: relative;
-            flex-grow: 1;
-            margin-right: 20px;
-        }
-
-        .fake-progress-fill {
-            width: 40%;
-            height: 100%;
-            background-color: #ffffff;
-            position: relative;
-        }
-
-        .fake-progress-dot {
-            width: 8px;
-            height: 8px;
-            background-color: #ffffff;
-            border-radius: 50%;
-            position: absolute;
-            right: 0;
-            top: 50%;
-            transform: translate(50%, -50%);
-        }
-
-        .volume-icon {
-            font-size: 0.85rem;
-            opacity: 0.5;
-        }
-
         .custom-footer {
             background-color: #121316;
             font-size: 0.7rem;
@@ -257,7 +217,7 @@
     </nav>
 
     <main>
-        <!-- SLAID 1 -->
+        <!-- SLAID 1: HERO BANNER -->
         <section class="hero-section">
             <div class="container d-flex flex-column justify-content-between h-100">
                 <div>
@@ -275,33 +235,24 @@
             </div>
         </section>
 
-        <!-- SLAID 2 -->
+        <!-- SLAID 2: DESIGN IKUT CONTOH GAMBAR KAU (CLEAN) -->
         <section id="video-section" class="video-section">
             <div class="video-content-holder">
-                <div class="pause-indicator">‖</div>
                 <h2 class="aesthetic-quote">
                     Urban escape.<br>
                     Breathtaking views.<br>
-                    Welcome to Beststays.
+                    Welcome to Vista Suites.
                 </h2>
                 
                 <div>
                     <a href="listings.html" class="btn-premium">View Homestays</a>
                     <a href="booking.html" class="btn-premium btn-outline">Check Availability</a>
                 </div>
-
-                <div class="player-bar-container">
-                    <div class="fake-progress-line">
-                        <div class="fake-progress-fill">
-                            <div class="fake-progress-dot"></div>
-                        </div>
-                    </div>
-                    <div class="volume-icon">🔊</div>
-                </div>
             </div>
         </section>
     </main>
 
+    <!-- FOOTER -->
     <footer class="custom-footer text-center py-4">
         <p class="mb-0">&copy; 2026 Beststays.com. BERC2393 Assignment.</p>
     </footer>
