@@ -4,16 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Beststays.com - Stay Comfortably, Travel Happily</title>
-    
+
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 
-    <!-- INTERNAL CSS -->
     <style>
         body, html {
             margin: 0;
@@ -26,275 +25,197 @@
             scroll-behavior: smooth;
         }
 
-        h1, h2, .subtitle-top {
+        h1, h2 {
             font-family: 'Cinzel', serif;
             letter-spacing: 3px;
         }
 
-        /* NAVBAR KEKAL DI ATAS DAN SOLID */
+        /* NAVBAR */
         .custom-navbar {
             background-color: #121316 !important;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 15px;
-            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding: 15px 0;
             z-index: 9999 !important;
         }
 
         .custom-navbar .navbar-brand {
             font-family: 'Cinzel', serif;
             font-weight: 600;
-            color: #ffffff !important;
+            color: #fff !important;
             letter-spacing: 2px;
-            font-size: 1.1rem;
         }
 
         .custom-navbar .nav-link {
-            color: rgba(255, 255, 255, 0.7) !important;
+            color: rgba(255,255,255,0.7) !important;
             font-size: 0.75rem;
             letter-spacing: 2px;
-            font-weight: 400;
-            padding-left: 15px !important;
-            padding-right: 15px !important;
             text-transform: uppercase;
-            transition: color 0.3s ease;
+            transition: 0.3s;
         }
 
-        .custom-navbar .nav-link:hover, 
-        .custom-navbar .nav-link.active {
-            color: #ffffff !important;
-            font-weight: 500;
+        .custom-navbar .nav-link:hover {
+            color: #fff !important;
         }
 
-        /* SECTION 1: HERO BANNER (Gambar Pertama) */
+        /* HERO */
         .hero-section {
             height: 100vh;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            justify-content: center;
             text-align: center;
-            background-image: linear-gradient(rgba(18, 19, 22, 0.4), rgba(18, 19, 22, 0.5)), url('mainpage.png');
+            background: linear-gradient(rgba(18,19,22,0.4),rgba(18,19,22,0.6)),
+            url('mainpage.png');
             background-size: cover;
             background-position: center;
-            background-repeat: no-repeat;
-            padding-top: 120px;
-        }
-
-        .subtitle-top {
-            font-size: 0.9rem;
-            font-weight: 400;
-            letter-spacing: 6px;
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 5px;
-        }
-
-        .subtitle-sub {
-            font-size: 0.8rem;
-            font-weight: 300;
-            letter-spacing: 3px;
-            color: rgba(255, 255, 255, 0.6);
-            margin-bottom: 20px;
+            padding-top: 80px;
         }
 
         .main-heading {
             font-size: clamp(2.3rem, 7vw, 5rem);
-            font-weight: 400;
-            line-height: 1.3;
             letter-spacing: 8px;
-            margin-top: 20px;
-            margin-bottom: 20px;
-            color: #ffffff;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.8);
         }
 
         .view-exp-link {
-            color: #ffffff !important;
+            color: #fff;
             text-decoration: none;
+            border-bottom: 1px solid rgba(255,255,255,0.5);
             font-size: 0.75rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-            padding-bottom: 5px;
-            display: inline-block;
-            margin-bottom: 40px;
-            transition: 0.3s ease;
         }
 
-        .view-exp-link:hover {
-            border-bottom-color: #ffffff;
-            letter-spacing: 4px;
-        }
-
-        /* SECTION 2: VIDEO BACKGROUND CONTAINER */
+        /* VIDEO SECTION */
         .video-section {
             position: relative;
             height: 100vh;
-            width: 100%;
-            display: flex;
-            align-items: center;
             overflow: hidden;
         }
 
-        /* MEMAKSA VIDEO DUDUK DI BELAKANG & KEMBANG IKUT SKRIN */
         .video-bg {
             position: absolute;
             top: 50%;
             left: 50%;
             min-width: 100%;
             min-height: 100%;
-            width: auto;
-            height: auto;
-            z-index: 1;
             transform: translate(-50%, -50%);
             object-fit: cover;
         }
 
-        /* LAPISAN GELAP DI ATAS VIDEO SUPAYA TULISAN JELAS */
         .video-overlay {
             position: absolute;
-            top: 0;
-            left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(rgba(18, 19, 22, 0.5), rgba(18, 19, 22, 0.7));
-            z-index: 2;
+            background: rgba(18,19,22,0.6);
         }
 
-        /* KANDUNGAN TULISAN DUDUK DI ATAS VIDEO DAN OVERLAY */
         .video-content-holder {
             position: relative;
-            z-index: 3;
-            width: 100%;
-            padding-left: 5%;
-            padding-right: 5%;
+            z-index: 2;
+            text-align: center;
+            top: 50%;
+            transform: translateY(-50%);
         }
 
         .aesthetic-quote {
-            font-family: 'Cinzel', serif; 
-            font-size: clamp(2.5rem, 6.5vw, 4.8rem); 
-            font-weight: 400; 
-            line-height: 1.1; 
-            letter-spacing: -1px;
-            margin-bottom: 35px;
-            text-shadow: 0 2px 15px rgba(0,0,0,0.6);
-            max-width: 900px;
+            font-family: 'Cinzel', serif;
+            font-size: clamp(2rem, 5vw, 4rem);
         }
 
-        /* BUTANG PREMIUM */
         .btn-premium {
+            padding: 12px 30px;
+            background: #fff;
+            color: #121316;
+            text-decoration: none;
+            margin: 5px;
             display: inline-block;
-            padding: 14px 35px;
-            background-color: #ffffff !important;
-            color: #121316 !important;
-            font-size: 0.7rem;
-            font-weight: 500;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            text-decoration: none !important;
-            border: 1px solid #ffffff;
-            transition: all 0.3s ease;
+            border: 1px solid #fff;
+            transition: 0.3s;
         }
 
         .btn-premium:hover {
-            background-color: transparent !important;
-            color: #ffffff !important;
+            background: transparent;
+            color: #fff;
         }
 
-        .btn-premium.btn-outline {
-            background-color: transparent !important;
-            color: #ffffff !important;
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            margin-left: 15px;
+        .btn-outline {
+            background: transparent;
+            color: #fff;
         }
 
-        .btn-premium.btn-outline:hover {
-            border-color: #ffffff;
-            background-color: #ffffff !important;
-            color: #121316 !important;
+        .btn-outline:hover {
+            background: #fff;
+            color: #121316;
         }
 
-        .custom-footer {
-            background-color: #121316;
+        footer {
+            background: #121316;
+            text-align: center;
+            padding: 20px;
             font-size: 0.7rem;
-            letter-spacing: 1px;
-            opacity: 0.5;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            opacity: 0.6;
+            border-top: 1px solid rgba(255,255,255,0.1);
         }
     </style>
 </head>
+
 <body>
 
-    <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top custom-navbar">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">BESTSTAYS</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="listings.html">Homestays</a></li>
-                    <li class="nav-item"><a class="nav-link" href="reviews.html">Reviews</a></li>
-                    <li class="nav-item"><a class="nav-link" href="aboutus.html">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="Contactus.html">Contact</a></li>
-                </ul>
-            </div>
+<!-- NAVBAR (FIXED - TAK COLLAPSE) -->
+<nav class="navbar navbar-dark fixed-top custom-navbar">
+    <div class="container d-flex justify-content-between align-items-center">
+
+        <a class="navbar-brand" href="index.html">BESTSTAYS</a>
+
+        <ul class="navbar-nav d-flex flex-row gap-4">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="listings.html">Homestays</a></li>
+            <li class="nav-item"><a class="nav-link" href="reviews.html">Reviews</a></li>
+            <li class="nav-item"><a class="nav-link" href="aboutus.html">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="Contactus.html">Contact</a></li>
+        </ul>
+
+    </div>
+</nav>
+
+<main>
+
+<!-- HERO -->
+<section class="hero-section">
+    <div>
+        <p>PREMIUM ACCOMMODATION</p>
+        <h1 class="main-heading">BESTSTAYS<br>HOMESTAY</h1>
+        <a href="#video-section" class="view-exp-link">View Experience →</a>
+    </div>
+</section>
+
+<!-- VIDEO -->
+<section id="video-section" class="video-section">
+
+    <video autoplay muted loop playsinline class="video-bg">
+        <source src="vdpage2.mp4" type="video/mp4">
+    </video>
+
+    <div class="video-overlay"></div>
+
+    <div class="video-content-holder">
+        <h2 class="aesthetic-quote">
+            Urban escape.<br>
+            Breathtaking views.<br>
+            Welcome to BestStays.
+        </h2>
+
+        <div>
+            <a href="listings.html" class="btn-premium">View Homestays</a>
+            <a href="booking.html" class="btn-premium btn-outline">Check Availability</a>
         </div>
-    </nav>
+    </div>
 
-    <main>
-        <!-- SLAID 1: HERO BANNER -->
-        <section class="hero-section">
-            <div class="container d-flex flex-column justify-content-between h-100">
-                <div>
-                    <p class="subtitle-top">PREMIUM ACCOMMODATION</p>
-                    <p class="subtitle-sub">Malacca, Malaysia</p>
-                </div>
-                
-                <div>
-                    <h1 class="main-heading">BESTSTAYS<br>HOMESTAY</h1>
-                </div>
-                
-                <div>
-                    <a href="#video-section" class="view-exp-link">View Experience →</a>
-                </div>
-            </div>
-        </section>
+</section>
 
-        <!-- SLAID 2: LATAR BELAKANG VIDEO (videopage2.mov) -->
-        <section id="video-section" class="video-section">
-            
-            <!-- Elemen video dipanggil secara lokal -->
-            <video autoplay muted loop playsinline class="video-bg">
-    <source src="vdpage2.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-</video>
-            
-            <!-- Overlay Gelap -->
-            <div class="video-overlay"></div>
+</main>
 
-            <!-- Kandungan Atas Video -->
-            <div class="video-content-holder">
-                <h2 class="aesthetic-quote">
-                    Urban escape.<br>
-                    Breathtaking views.<br>
-                    Welcome to BestStays.
-                </h2>
-                
-                <div>
-                    <a href="listings.html" class="btn-premium">View Homestays</a>
-                    <a href="booking.html" class="btn-premium btn-outline">Check Availability</a>
-                </div>
-            </div>
-        </section>
-    </main>
+<footer>
+    © 2026 Beststays.com. BERC2393 Assignment.
+</footer>
 
-    <!-- FOOTER -->
-    <footer class="custom-footer text-center py-4">
-        <p class="mb-0">&copy; 2026 Beststays.com. BERC2393 Assignment.</p>
-    </footer>
-
-    <!-- Bootstrap 5 JS Bundle -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
