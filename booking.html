@@ -33,38 +33,38 @@
                             <div class="row mb-3">
                                 <div class="col-md-6">
                                     <label for="fullName" class="form-label">Full Name</label>
-                                    <input type="text" class="form-control" id="fullName" required>
+                                    <input type="text" class="form-control" id="fullName" name="fullName" required>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="emailAddress" class="form-label">Email Address</label>
-                                    <input type="email" class="form-control" id="emailAddress" required>
+                                    <input type="email" class="form-control" id="emailAddress" name="emailAddress" required>
                                 </div>
                             </div>
 
                             <div class="mb-3">
                                 <label for="contactNumber" class="form-label">Contact Number</label>
-                                <input type="tel" class="form-control" id="contactNumber" placeholder="+60123456789" required>
+                                <input type="tel" class="form-control" id="contactNumber" name="contactNumber" placeholder="+60123456789" required>
                             </div>
 
                             <div class="row mb-3">
                                 <div class="col-md-6">
                                     <label for="checkIn" class="form-label">Check-in Date</label>
-                                    <input type="date" class="form-control" id="checkIn" required>
+                                    <input type="date" class="form-control" id="checkIn" name="checkIn" required>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="checkOut" class="form-label">Check-out Date</label>
-                                    <input type="date" class="form-control" id="checkOut" required>
+                                    <input type="date" class="form-control" id="checkOut" name="checkOut" required>
                                 </div>
                             </div>
 
                             <div class="row mb-4">
                                 <div class="col-md-6">
                                     <label for="guests" class="form-label">Number of Guests</label>
-                                    <input type="number" class="form-control" id="guests" min="1" required>
+                                    <input type="number" class="form-control" id="guests" name="guests" min="1" required>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="unitType" class="form-label">Unit Type</label>
-                                    <select class="form-select" id="unitType" required>
+                                    <select class="form-select" id="unitType" name="unitType" required>
                                         <option value="" selected disabled>Select a homestay...</option>
                                         <option value="Studio Room">Studio Room</option>
                                         <option value="Family Suite">Family Suite</option>
@@ -78,12 +78,43 @@
                     </div>
                 </div>
 
-                <!-- Dummy Thank You Message -->
-                <div class="card d-none p-5 text-center" id="thankYouMessage">
-                    <h2 class="text-success mb-3">Thank You!</h2>
-                    <p class="lead">Your booking inquiry has been successfully received.</p>
-                    <a href="listings.html" class="btn btn-outline-primary mt-3">Return to Listings</a>
-                </div>
+                <!-- Booking Confirmation -->
+<div class="card d-none p-4" id="thankYouMessage">
+
+    <div class="card-body">
+
+        <h2 class="text-success text-center">
+            ✔ Booking Inquiry Received
+        </h2>
+
+        <hr>
+
+        <h4 class="mb-3">Booking Confirmation</h4>
+        <p><strong>Booking ID:</strong> <span id="bookingID"></span></p>
+
+        <p><strong>Name:</strong> <span id="confirmName"></span></p>
+
+        <p><strong>Email:</strong> <span id="confirmEmail"></span></p>
+
+        <p><strong>Contact:</strong> <span id="confirmContact"></span></p>
+
+        <p><strong>Homestay:</strong> <span id="confirmUnit"></span></p>
+
+        <p><strong>Guests:</strong> <span id="confirmGuests"></span></p>
+
+        <p><strong>Check-in:</strong> <span id="confirmCheckIn"></span></p>
+
+        <p><strong>Check-out:</strong> <span id="confirmCheckOut"></span></p>
+
+        <div class="text-center mt-4">
+            <a href="listings.html" class="btn btn-primary">
+                Return to Listings
+            </a>
+        </div>
+
+    </div>
+
+</div>
 
             </div>
         </div>
@@ -95,11 +126,66 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        document.getElementById('inquiryForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            document.getElementById('bookingCard').classList.add('d-none');
-            document.getElementById('thankYouMessage').classList.remove('d-none');
-        });
-    </script>
+        // Set today's date as the minimum date
+const today = new Date().toISOString().split("T")[0];
+
+document.getElementById("checkIn").min = today;
+document.getElementById("checkOut").min = today;
+
+// Update the minimum check-out date when check-in changes
+document.getElementById("checkIn").addEventListener("change", function () {
+    document.getElementById("checkOut").min = this.value;
+});
+    document.getElementById("inquiryForm").addEventListener("submit", function(event) {
+
+    // Stop page refresh
+    event.preventDefault();
+
+    // Get all values
+    const name = document.getElementById("fullName").value;
+    const email = document.getElementById("emailAddress").value;
+    const contact = document.getElementById("contactNumber").value;
+    const guests = document.getElementById("guests").value;
+    const unit = document.getElementById("unitType").value;
+    const checkIn = new Date(document.getElementById("checkIn").value);
+    const checkOut = new Date(document.getElementById("checkOut").value);
+    const bookingID = "BST" + Math.floor(100000 + Math.random() * 900000);
+
+    // Check dates
+    if (new Date(checkOut) <= new Date(checkIn)) {
+        alert("Check-out date must be after the check-in date.");
+        return;
+    }
+
+    // Display booking information
+    document.getElementById("bookingID").textContent = bookingID;
+    document.getElementById("confirmName").textContent = name;
+    document.getElementById("confirmEmail").textContent = email;
+    document.getElementById("confirmContact").textContent = contact;
+    document.getElementById("confirmGuests").textContent = guests;
+    document.getElementById("confirmUnit").textContent = unit;
+    document.getElementById("confirmCheckIn").textContent =
+    checkIn.toLocaleDateString("en-GB", {
+        day: "numeric",
+        month: "long",
+        year: "numeric"
+    });
+
+    document.getElementById("confirmCheckOut").textContent =
+    checkOut.toLocaleDateString("en-GB", {
+        day: "numeric",
+        month: "long",
+        year: "numeric"
+    });
+
+    // Hide booking form
+    alert("Booking inquiry submitted successfully!");
+    document.getElementById("bookingCard").classList.add("d-none");
+
+    // Show confirmation
+    document.getElementById("thankYouMessage").classList.remove("d-none");
+
+});
+</script>
 </body>
 </html>
