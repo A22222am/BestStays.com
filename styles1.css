@@ -1,0 +1,62 @@
+/* Color updates to match image */
+.text-custom-blue { color: #004085; }
+.btn-whatsapp { 
+    background-color: #198754; 
+    color: white; 
+    border: none; 
+}
+.btn-whatsapp:hover { 
+    background-color: #157347; 
+    color: white; 
+}
+.booking-card {
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    padding: 20px;
+}
+.amenities-list {
+    list-style: none;
+    padding-left: 0;
+}
+.amenities-list li::before {
+    content: "■";
+    color: #6c757d;
+    display: inline-block; 
+    width: 1em;
+    margin-left: -1em;
+}
+
+/*====================================================================*/
+
+/* REVIEW PAGE */
+
+#reviewCarousel {
+    background: linear-gradient(135deg, #eef2f3, #cfd9df);
+    padding: 40px 10px;
+    border-radius: 20px;
+}
+
+/* Buat card */
+#reviewCarousel .card {
+    background: white;
+    border-radius: 18px;
+    border: none;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+}
+
+/* Saiz Text */
+#reviewCarousel p {
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+/* Buat bingkai gambar */
+#reviewCarousel img {
+    border: 3px solid #0077b6;
+}
+
+/* Card Effect */
+#reviewCarousel .card:hover {
+    transform: scale(1.03);
+    transition: 0.3s ease;
+}
