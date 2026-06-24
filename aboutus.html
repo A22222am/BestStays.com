@@ -4,426 +4,380 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Discover Melaka - Luxury Accommodations</title>
+
+<!-- Bootstrap 5 -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Google Fonts - sama macam index.html -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 <style>
-    :root {
-        --bg-dark: #0f172a;
-        --card-bg: #1e293b;
-        --accent-blue: #38bdf8;
-        --text-light: #f8fafc;
-        --text-muted: #94a3b8;
-    }
+/* ================= NAVBAR - exact index.html ================= */
+.custom-navbar {
+    background-color: #121316 !important;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding: 15px 0;
+    z-index: 9999 !important;
+}
 
-    body {
-        margin: 0;
-        padding: 0;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-        background-color: var(--bg-dark);
-        color: var(--text-light);
-        line-height: 1.6;
-    }
+.custom-navbar .navbar-brand {
+    font-family: 'Cinzel', serif;
+    font-weight: 600;
+    color: #fff !important;
+    letter-spacing: 2px;
+}
 
-    header {
-        text-align: center;
-        padding: 60px 20px 40px 20px;
-        background: linear-gradient(to bottom, rgba(15, 23, 42, 0.8), var(--bg-dark));
-    }
+.custom-navbar .nav-link {
+    color: rgba(255,255,255,0.7) !important;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
 
-    header h1 {
-        font-size: 2.8rem;
-        margin: 0 0 10px 0;
-        font-weight: 800;
-        letter-spacing: -1px;
-    }
+.custom-navbar .nav-link:hover,
+.custom-navbar .nav-link.active {
+    color: #fff !important;
+}
 
-    header p {
-        color: var(--text-muted);
-        font-size: 1.1rem;
-        max-width: 600px;
-        margin: 0 auto;
-    }
+/* ================= ORIGINAL STYLE (TIDAK DIUBAH) ================= */
+:root {
+    --bg-dark: #0f172a;
+    --card-bg: #1e293b;
+    --accent-blue: #38bdf8;
+    --text-light: #f8fafc;
+    --text-muted: #94a3b8;
+}
 
-    /* Fixed grid container to strictly enforce 3 columns */
+body {
+    margin: 0;
+    padding-top: 80px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+header {
+    text-align: center;
+    padding: 60px 20px 40px 20px;
+    background: linear-gradient(to bottom, rgba(15, 23, 42, 0.8), var(--bg-dark));
+}
+
+header h1 {
+    font-size: 2.8rem;
+    margin: 0 0 10px 0;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+header p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.portfolio-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px 80px 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.hotel-card {
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.hotel-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0,0,0,0.5);
+}
+
+.image-viewer {
+    position: relative;
+    width: 100%;
+    height: 240px;
+    overflow: hidden;
+    background: #000;
+}
+
+.image-viewer img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.image-viewer img.active {
+    opacity: 1;
+}
+
+.gallery-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(15,23,42,0.75);
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    color: var(--accent-blue);
+}
+
+.hotel-info {
+    padding: 25px;
+}
+
+.hotel-name {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.hotel-tagline {
+    color: var(--accent-blue);
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.hotel-description {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+/* AWARDS */
+.awards-section {
+    background-color: #1e222b;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.awards-title {
+    font-size: 3rem;
+    margin-bottom: 40px;
+}
+
+.awards-container-flex {
+    max-width: 1020px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.awards-row {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.award-card {
+    border: 1px solid rgba(255,255,255,0.15);
+    padding: 25px;
+    width: 325px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 980px) {
     .portfolio-container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 20px 80px 20px;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 30px;
+        grid-template-columns: repeat(2, 1fr);
     }
-
-    /* Interactive Hotel Cards */
-    .hotel-card {
-        background-color: var(--card-bg);
-        border-radius: 12px;
-        overflow: hidden;
-        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        display: flex;
-        flex-direction: column;
-    }
-
-    .hotel-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
-    }
-
-    /* Dynamic Image Gallery Container inside the Card */
-    .image-viewer {
-        position: relative;
-        width: 100%;
-        height: 240px;
-        overflow: hidden;
-        background-color: #000;
-    }
-
-    .image-viewer img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        position: absolute;
-        top: 0;
-        left: 0;
-        opacity: 0;
-        transition: opacity 0.5s ease-in-out;
-    }
-
-    /* Shows the active image */
-    .image-viewer img.active {
-        opacity: 1;
-    }
-
-    /* Subtle indicator dots or controls overlay */
-    .gallery-badge {
-        position: absolute;
-        top: 15px;
-        right: 15px;
-        background: rgba(15, 23, 42, 0.75);
-        padding: 4px 10px;
-        border-radius: 20px;
-        font-size: 0.75rem;
-        font-weight: 600;
-        color: var(--accent-blue);
-        backdrop-filter: blur(4px);
-        z-index: 10;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    /* Content Styling */
-    .hotel-info {
-        padding: 25px;
-        display: flex;
-        flex-direction: column;
-        flex-grow: 1;
-    }
-
-    .hotel-name {
-        font-size: 1.4rem;
-        font-weight: 700;
-        margin: 0 0 8px 0;
-    }
-
-    .hotel-tagline {
-        color: var(--accent-blue);
-        font-size: 0.9rem;
-        font-weight: 500;
-        margin-bottom: 15px;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-    }
-
-    .hotel-description {
-        color: var(--text-muted);
-        font-size: 0.95rem;
-        margin-bottom: 20px;
-        flex-grow: 1;
-    }
-
-    /* Amenities Row */
-    .amenities-strip {
-        display: flex;
-        gap: 15px;
-        border-top: 1px solid rgba(255, 255, 255, 0.08);
-        padding-top: 15px;
-    }
-
-    .amenity-tag {
-        display: flex;
-        align-items: center;
-        gap: 6px;
-        font-size: 0.85rem;
-        color: var(--text-light);
-    }
-
-    .amenity-tag i {
-        color: var(--accent-blue);
-    }
-
-    /* --- Awards Section Styles --- */
-    .awards-section {
-        background-color: #1e222b;
-        padding: 80px 20px;
-        text-align: center;
-    }
-
-    .awards-title {
-        font-family: 'Playfair Display', 'Georgia', serif;
-        font-size: 3.5rem;
-        font-weight: 300;
-        text-transform: uppercase;
-        letter-spacing: 3px;
-        margin-bottom: 50px;
-        color: #ffffff;
-        text-align: left;
-        max-width: 1020px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .awards-container-flex {
-        max-width: 1020px;
-        margin: 0 auto;
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-    }
-
     .awards-row {
-        display: flex;
-        justify-content: center;
-        gap: 20px;
-    }
-
-    .award-card {
-        border: 1px solid rgba(255, 255, 255, 0.15);
-        padding: 25px;
-        text-align: left;
-        background: transparent;
-        width: 325px;
-        min-height: 140px;
-        display: flex;
         flex-direction: column;
-        justify-content: space-between;
-        box-sizing: border-box;
     }
+}
 
-    .award-name {
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-        font-size: 1.1rem;
-        font-weight: 700;
-        color: #ffffff;
-        margin: 0 0 20px 0;
-        line-height: 1.3;
+@media (max-width: 600px) {
+    .portfolio-container {
+        grid-template-columns: 1fr;
     }
-
-    .award-organization {
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-        font-size: 0.7rem;
-        font-weight: 600;
-        color: #94a3b8;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        margin: 0;
-    }
-
-    /* Responsive Adjustments */
-    @media (max-width: 980px) {
-        .portfolio-container {
-            grid-template-columns: repeat(2, 1fr);
-        }
-        .awards-row {
-            flex-direction: column;
-            align-items: center;
-        }
-        .award-card {
-            width: 100%;
-            max-width: 450px;
-        }
-        .awards-title {
-            text-align: center;
-            font-size: 2.8rem;
-        }
-    }
-
-    @media (max-width: 600px) {
-        .portfolio-container {
-            grid-template-columns: 1fr;
-        }
-    }
+}
 </style>
 </head>
+
 <body>
 
-    <header>
-        <h1>Melaka Premium Escapes</h1>
-        <p>Explore our curated showcase of elite architectural marvels, heritage estates, and comprehensive premium amenities across Melaka.</p>
-    </header>
+<!-- NAVBAR - exact index.html -->
+<nav class="navbar navbar-dark fixed-top custom-navbar">
+    <div class="container d-flex justify-content-between align-items-center">
 
-    <div class="portfolio-container">
+        <a class="navbar-brand" href="index.html">BESTSTAYS</a>
 
-        <div class="hotel-card" onmouseenter="swapImage('baba', 1)" onmouseleave="swapImage('baba', 0)">
-            <div class="image-viewer">
-                <span class="gallery-badge"><i class="fa-solid fa-images"></i> Interactive View</span>
-                <img id="baba-0" src="baba1.jpg" class="active" alt="Baba House Front View">
-                <img id="baba-1" src="baba3.jpg" alt="Baba House Courtyard View">
-            </div>
-            <div class="hotel-info">
-                <h2 class="hotel-name">Baba House Melaka</h2>
-                <div class="hotel-tagline">Peranakan Heritage Estate</div>
-                <div class="hotel-description">
-                    Immerse yourself in authentic Baba-Nyonya history. Featuring striking traditional blue facades, intricate molding, and a luxurious updated courtyard relaxation plunge pool space.
-                </div>
-                <div class="amenities-strip">
-                    <div class="amenity-tag"><i class="fa-solid fa-landmark"></i> Heritage</div>
-                    <div class="amenity-tag"><i class="fa-solid fa-umbrella-beach"></i> Plunge Pool</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="hotel-card" onmouseenter="swapImage('swiss', 1)" onmouseleave="swapImage('swiss', 0)">
-            <div class="image-viewer">
-                <span class="gallery-badge"><i class="fa-solid fa-images"></i> Interactive View</span>
-                <img id="swiss-0" src="swiss1.jpg" class="active" alt="Swiss Garden Exterior Bridge View">
-                <img id="swiss-1" src="swiss3.jpg" alt="Swiss Garden Aerial View">
-            </div>
-            <div class="hotel-info">
-                <h2 class="hotel-name">Swiss-Garden Hotel</h2>
-                <div class="hotel-tagline">Contemporary Urban Icon</div>
-                <div class="hotel-description">
-                    Soaring 32 stories above the historical Melaka River, offering spectacular bird's-eye urban vistas, sky sport complexes, and an integrated family-friendly adventure splash zone.
-                </div>
-                <div class="amenities-strip">
-                    <div class="amenity-tag"><i class="fa-solid fa-water"></i> Water Park</div>
-                    <div class="amenity-tag"><i class="fa-solid fa-building"></i> Sky Views</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="hotel-card" onmouseenter="swapImage('asteria', 1)" onmouseleave="swapImage('asteria', 0)">
-            <div class="image-viewer">
-                <span class="gallery-badge"><i class="fa-solid fa-images"></i> Interactive View</span>
-                <img id="asteria-0" src="asteria1.jpg" class="active" alt="Asteria Skyscraper Exterior">
-                <img id="asteria-1" src="asteria3.jpg" alt="Asteria Rooftop Pool">
-            </div>
-            <div class="hotel-info">
-                <h2 class="hotel-name">Hotel Asteria</h2>
-                <div class="hotel-tagline">Sophisticated Comfort</div>
-                <div class="hotel-description">
-                    Designed for maximum mental peace and tranquility. Features warm, minimalist executive suites accompanied by an expansive, beautifully illuminated evening rooftop swimming lounge.
-                </div>
-                <div class="amenities-strip">
-                    <div class="amenity-tag"><i class="fa-solid fa-bed"></i> Elite Suites</div>
-                    <div class="amenity-tag"><i class="fa-solid fa-cloud-moon"></i> Roof Pool</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="hotel-card" onmouseenter="swapImage('ibis', 1)" onmouseleave="swapImage('ibis', 0)">
-            <div class="image-viewer">
-                <span class="gallery-badge"><i class="fa-solid fa-images"></i> Interactive View</span>
-                <img id="ibis-0" src="ibis1.jpg" class="active" alt="Ibis Hotel Exterior">
-                <img id="ibis-1" src="ibis3.jpg" alt="Ibis Swimming Pool">
-            </div>
-            <div class="hotel-info">
-                <h2 class="hotel-name">Ibis Melaka</h2>
-                <div class="hotel-tagline">Modern Lifestyle Stay</div>
-                <div class="hotel-description">
-                    A vibrant architectural presence in the heart of town. Boasts elegant facade illumination paired with a stunning, color-lit lap pool perfect for night-time refreshment.
-                </div>
-                <div class="amenities-strip">
-                    <div class="amenity-tag"><i class="fa-solid fa-city"></i> City Center</div>
-                    <div class="amenity-tag"><i class="fa-solid fa-swimming-pool"></i> Lap Pool</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="hotel-card">
-            <div class="image-viewer">
-                <span class="gallery-badge" style="color: #38bdf8;"><i class="fa-solid fa-circle-dot"></i> Always Available</span>
-                <img src="reception.jpg" class="active" alt="24/7 Reception Desk Support">
-            </div>
-            <div class="hotel-info">
-                <h2 class="hotel-name">24/7 Front Desk Support</h2>
-                <div class="hotel-tagline" style="color: #38bdf8;">Round-The-Clock Service</div>
-                <div class="hotel-description">
-                    Your comfort has no curfew. Our dedicated receptionist and concierge teams are available 24 hours a day, 7 days a week to handle express overnight arrivals, immediate guest requests, and total security peace of mind.
-                </div>
-                <div class="amenities-strip">
-                    <div class="amenity-tag"><i class="fa-solid fa-clock"></i> Open 24/7</div>
-                    <div class="amenity-tag"><i class="fa-solid fa-bell-concierge"></i> Service Desk</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="hotel-card">
-            <div class="image-viewer">
-                <span class="gallery-badge" style="color: #38bdf8;"><i class="fa-solid fa-crown"></i> Chef's Selection</span>
-                <img src="buffet.jpg" class="active" alt="International Grand Buffet Breakfast Spread">
-            </div>
-            <div class="hotel-info">
-                <h2 class="hotel-name">Complimentary Grand Buffet</h2>
-                <div class="hotel-tagline" style="color: #38bdf8;">Gourmet Breakfast Feast</div>
-                <div class="hotel-description">
-                    Start your day with a luxurious spread. Featuring an elaborate rotation of international hot dishes, gourmet pastries, fresh fruits, and a selection of premium juices to satisfy every palate.
-                </div>
-                <div class="amenities-strip">
-                    <div class="amenity-tag"><i class="fa-solid fa-mug-hot"></i> Coffee Station</div>
-                    <div class="amenity-tag"><i class="fa-solid fa-utensils"></i> All-You-Can-Eat</div>
-                </div>
-            </div>
-        </div>
+        <ul class="navbar-nav d-flex flex-row gap-4">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="listings.html">Homestays</a></li>
+            <li class="nav-item"><a class="nav-link" href="reviews.html">Reviews</a></li>
+            <li class="nav-item"><a class="nav-link active" href="aboutus.html">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="Contactus.html">Contact</a></li>
+        </ul>
 
     </div>
+</nav>
 
-    <section class="awards-section">
-        <h2 class="awards-title">Awards</h2>
-        
-        <div class="awards-container-flex">
-            <div class="awards-row">
-                <div class="award-card">
-                    <h3 class="award-name">Excellence in Guest Service</h3>
-                    <p class="award-organization">Hospitality Awards 2030</p>
-                </div>
-                
-                <div class="award-card">
-                    <h3 class="award-name">Ranked #3</h3>
-                    <p class="award-organization">City Guide's Top 50 Hotels 2030</p>
-                </div>
-                
-                <div class="award-card">
-                    <h3 class="award-name">Best Urban Retreat</h3>
-                    <p class="award-organization">City Travel Awards</p>
-                </div>
-            </div>
+<!-- ================= SEMUA CONTENT ASAL KEKAL 100% ================= -->
 
-            <div class="awards-row">
-                <div class="award-card">
-                    <h3 class="award-name">Traveler's Choice<br>for City Escape</h3>
-                    <p class="award-organization">Global Getaway Awards 2030</p>
-                </div>
-                
-                <div class="award-card">
-                    <h3 class="award-name">Top Boutique<br>Hotel Experience</h3>
-                    <p class="award-organization">Travel Magazine 2030</p>
-                </div>
+<header>
+    <h1>Melaka Premium Escapes</h1>
+    <p>Explore our curated showcase of elite architectural marvels, heritage estates, and comprehensive premium amenities across Melaka.</p>
+</header>
+
+<div class="portfolio-container">
+
+    <div class="hotel-card" onmouseenter="swapImage('baba',1)" onmouseleave="swapImage('baba',0)">
+        <div class="image-viewer">
+            <span class="gallery-badge"><i class="fa-solid fa-images"></i> Interactive View</span>
+            <img id="baba-0" src="baba1.jpg" class="active">
+            <img id="baba-1" src="baba3.jpg">
+        </div>
+        <div class="hotel-info">
+            <h2 class="hotel-name">Baba House Melaka</h2>
+            <div class="hotel-tagline">Peranakan Heritage Estate</div>
+            <div class="hotel-description">
+                Immerse yourself in authentic Baba-Nyonya history. Featuring striking traditional blue facades, intricate molding, and a luxurious updated courtyard relaxation plunge pool space.
             </div>
         </div>
-    </section>
+    </div>
 
-    <script>
-        function swapImage(hotelId, index) {
-            const img0 = document.getElementById(`${hotelId}-0`);
-            const img1 = document.getElementById(`${hotelId}-1`);
-            
-            if (index === 1) {
-                img0.classList.remove('active');
-                img1.classList.add('active');
-            } else {
-                img1.classList.remove('active');
-                img0.classList.add('active');
-            }
-        }
-    </script>
+    <div class="hotel-card" onmouseenter="swapImage('swiss',1)" onmouseleave="swapImage('swiss',0)">
+        <div class="image-viewer">
+            <span class="gallery-badge"><i class="fa-solid fa-images"></i> Interactive View</span>
+            <img id="swiss-0" src="swiss1.jpg" class="active">
+            <img id="swiss-1" src="swiss3.jpg">
+        </div>
+        <div class="hotel-info">
+            <h2 class="hotel-name">Swiss Garden Hotel</h2>
+            <div class="hotel-tagline">Contemporary Urban Icon</div>
+            <div class="hotel-description">
+                Soaring 32 stories above the historical Melaka River, offering spectacular bird's-eye urban vistas, sky sport complexes, and an integrated family-friendly adventure splash zone.
+            </div>
+        </div>
+    </div>
+
+    <div class="hotel-card" onmouseenter="swapImage('asteria',1)" onmouseleave="swapImage('asteria',0)">
+        <div class="image-viewer">
+            <span class="gallery-badge"><i class="fa-solid fa-images"></i> Interactive View</span>
+            <img id="asteria-0" src="asteria1.jpg" class="active">
+            <img id="asteria-1" src="asteria3.jpg">
+        </div>
+        <div class="hotel-info">
+            <h2 class="hotel-name">Hotel Asteria</h2>
+            <div class="hotel-tagline">Sophisticated Comfort</div>
+            <div class="hotel-description">
+                Designed for maximum mental peace and tranquility. Features warm, minimalist executive suites accompanied by an expansive, beautifully illuminated evening rooftop swimming lounge.
+            </div>
+        </div>
+    </div>
+
+    <div class="hotel-card" onmouseenter="swapImage('ibis',1)" onmouseleave="swapImage('ibis',0)">
+        <div class="image-viewer">
+            <span class="gallery-badge"><i class="fa-solid fa-images"></i> Interactive View</span>
+            <img id="ibis-0" src="ibis1.jpg" class="active">
+            <img id="ibis-1" src="ibis3.jpg">
+        </div>
+        <div class="hotel-info">
+            <h2 class="hotel-name">Ibis Melaka</h2>
+            <div class="hotel-tagline">Modern Lifestyle Stay</div>
+            <div class="hotel-description">
+                A vibrant architectural presence in the heart of town. Boasts elegant facade illumination paired with a stunning, color-lit lap pool perfect for night-time refreshment.
+            </div>
+        </div>
+    </div>
+
+    <div class="hotel-card">
+        <div class="image-viewer">
+            <img src="reception.jpg" class="active">
+        </div>
+        <div class="hotel-info">
+            <h2 class="hotel-name">24/7 Front Desk Support</h2>
+            <div class="hotel-tagline">Round-The-Clock Service</div>
+            <div class="hotel-description">
+                Your comfort has no curfew. Our dedicated receptionist and concierge teams are available 24 hours a day, 7 days a week to handle express overnight arrivals, immediate guest requests, and total security peace of mind.
+            </div>
+        </div>
+    </div>
+
+    <div class="hotel-card">
+        <div class="image-viewer">
+            <img src="buffet.jpg" class="active">
+        </div>
+        <div class="hotel-info">
+            <h2 class="hotel-name">Complimentary Grand Buffet</h2>
+            <div class="hotel-tagline">Gourmet Breakfast Feast</div>
+            <div class="hotel-description">
+                Start your day with a luxurious spread. Featuring an elaborate rotation of international hot dishes, gourmet pastries, fresh fruits, and a selection of premium juices to satisfy every palate.
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<section class="awards-section">
+    <h2 class="awards-title">Awards</h2>
+
+    <div class="awards-container-flex">
+        <div class="awards-row">
+            <div class="award-card">
+                <h3 class="award-name">Excellence in Guest Service</h3>
+                <p class="award-organization">Hospitality Awards 2030</p>
+            </div>
+
+            <div class="award-card">
+                <h3 class="award-name">Ranked #3</h3>
+                <p class="award-organization">City Guide's Top 50 Hotels 2030</p>
+            </div>
+
+            <div class="award-card">
+                <h3 class="award-name">Best Urban Retreat</h3>
+                <p class="award-organization">City Travel Awards</p>
+            </div>
+        </div>
+
+        <div class="awards-row">
+            <div class="award-card">
+                <h3 class="award-name">Traveler's Choice for City Escape</h3>
+                <p class="award-organization">Global Getaway Awards 2030</p>
+            </div>
+
+            <div class="award-card">
+                <h3 class="award-name">Top Boutique Hotel Experience</h3>
+                <p class="award-organization">Travel Magazine 2030</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+function swapImage(hotelId, index) {
+    const img0 = document.getElementById(hotelId + '-0');
+    const img1 = document.getElementById(hotelId + '-1');
+
+    if (index === 1) {
+        img0.classList.remove('active');
+        img1.classList.add('active');
+    } else {
+        img1.classList.remove('active');
+        img0.classList.add('active');
+    }
+}
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>

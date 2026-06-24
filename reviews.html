@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Reviews - Beststays.com</title>
+<title>Guest Reviews - Beststays.com</title>
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -12,136 +12,168 @@
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
-
-body{
-    background:#121316;
-    color:white;
-    font-family:'Montserrat',sans-serif;
-    margin:0;
+body, html {
+    margin: 0;
+    padding: 0;
+    background-color: #121316;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
 }
 
-h1,h2,h3{
-    font-family:'Cinzel',serif;
-    letter-spacing:2px;
+/* NAVBAR - exact index.html */
+.custom-navbar {
+    background-color: #121316 !important;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding: 15px 0;
+    z-index: 9999 !important;
 }
 
-/* NAVBAR */
-
-.custom-navbar{
-    background:#121316;
-    border-bottom:1px solid rgba(255,255,255,0.1);
-    padding:15px 0;
+.custom-navbar .navbar-brand {
+    font-family: 'Cinzel', serif;
+    font-weight: 600;
+    color: #fff !important;
+    letter-spacing: 2px;
 }
 
-.navbar-brand{
-    font-family:'Cinzel',serif;
-    letter-spacing:2px;
+.custom-navbar .nav-link {
+    color: rgba(255,255,255,0.7) !important;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: 0.3s;
 }
 
-.nav-link{
-    color:rgba(255,255,255,0.7)!important;
-    text-transform:uppercase;
-    font-size:0.8rem;
-    letter-spacing:1px;
+.custom-navbar .nav-link:hover,
+.custom-navbar .nav-link.active {
+    color: #fff !important;
 }
 
-.nav-link:hover,
-.nav-link.active{
-    color:white!important;
+/* PAGE TITLE */
+.page-title {
+    padding-top: 130px;
+    text-align: center;
+    margin-bottom: 50px;
 }
 
-/* HEADER */
-
-.review-header{
-    padding:140px 20px 60px;
-    text-align:center;
-    background:linear-gradient(rgba(18,19,22,0.7),rgba(18,19,22,0.8)),
-    url('mainpage.png');
-    background-size:cover;
-    background-position:center;
+.page-title h2 {
+    font-family: 'Cinzel', serif;
+    letter-spacing: 4px;
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    font-weight: 400;
+    margin-bottom: 10px;
 }
 
-.review-header h1{
-    font-size:3rem;
+.page-title p {
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
 }
 
-.rating-box{
-    margin-top:25px;
-    font-size:1.2rem;
+/* REVIEW CARD - white */
+.review-card {
+    background: #ffffff;
+    color: #121316;
+    border: none;
+    border-radius: 0;
+    padding: 48px 40px;
+    text-align: center;
 }
 
-/* REVIEW CARD */
-
-.review-section{
-    padding:70px 20px;
+.review-card img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+    filter: grayscale(20%);
 }
 
-.review-card{
-    background:#1b1d21;
-    border:1px solid rgba(255,255,255,0.08);
-    border-radius:15px;
-    padding:30px;
-    height:100%;
-    transition:0.3s;
+.review-card h5 {
+    font-family: 'Cinzel', serif;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    color: #121316;
+    margin-bottom: 4px;
 }
 
-.review-card:hover{
-    transform:translateY(-5px);
+.review-card .unit-label {
+    font-size: 0.72rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #999;
+    margin-bottom: 14px;
 }
 
-.review-img{
-    width:80px;
-    height:80px;
-    border-radius:50%;
-    object-fit:cover;
-    margin-bottom:15px;
+.review-card .stars {
+    color: #c9a84c;
+    font-size: 1rem;
+    letter-spacing: 3px;
+    margin-bottom: 18px;
 }
 
-.star{
-    color:#ffc107;
-    font-size:1.1rem;
+.review-card .review-text {
+    font-size: 0.88rem;
+    line-height: 1.8;
+    color: #444;
+    font-style: italic;
+    max-width: 400px;
+    margin: 0 auto;
 }
 
-.review-type{
-    color:#bdbdbd;
-    font-size:0.9rem;
+/* CAROUSEL ARROWS */
+.carousel-control-prev,
+.carousel-control-next {
+    width: 44px;
+    height: 44px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #121316;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 0;
+    opacity: 1;
+    transition: 0.3s;
 }
 
-/* SUMMARY */
+.carousel-control-prev { left: -10px; }
+.carousel-control-next { right: -10px; }
 
-.summary-section{
-    background:#181a1e;
-    padding:70px 20px;
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+    background: #fff;
 }
 
-.summary-box{
-    text-align:center;
-    padding:20px;
+.carousel-control-prev:hover .carousel-control-prev-icon,
+.carousel-control-next:hover .carousel-control-next-icon {
+    filter: invert(1);
 }
 
-.summary-box h2{
-    font-size:2.5rem;
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    width: 16px;
+    height: 16px;
 }
 
-/* FOOTER */
-
-footer{
-    background:#121316;
-    border-top:1px solid rgba(255,255,255,0.1);
-    text-align:center;
-    padding:20px;
-    color:rgba(255,255,255,0.7);
+/* FOOTER - exact index.html */
+footer {
+    background: #121316;
+    text-align: center;
+    padding: 20px;
+    font-size: 0.7rem;
+    opacity: 0.6;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    font-family: 'Montserrat', sans-serif;
+    color: #fff;
+    margin-top: 60px;
 }
-
 </style>
 </head>
 
 <body>
 
-<!-- NAVBAR -->
-
+<!-- NAVBAR - exact index.html -->
 <nav class="navbar navbar-dark fixed-top custom-navbar">
-    <div class="container">
+    <div class="container d-flex justify-content-between align-items-center">
 
         <a class="navbar-brand" href="index.html">BESTSTAYS</a>
 
@@ -150,156 +182,100 @@ footer{
             <li class="nav-item"><a class="nav-link" href="listings.html">Homestays</a></li>
             <li class="nav-item"><a class="nav-link active" href="reviews.html">Reviews</a></li>
             <li class="nav-item"><a class="nav-link" href="aboutus.html">About</a></li>
-            <li class="nav-item"><a class="nav-link" href="contactus.html">Contact</a></li>
+            <li class="nav-item"><a class="nav-link" href="Contactus.html">Contact</a></li>
         </ul>
 
     </div>
 </nav>
 
-<!-- HEADER -->
+<!-- PAGE TITLE -->
+<div class="page-title">
+    <h2>Guest Reviews</h2>
+    <p>Based on 1,200+ verified guest reviews</p>
+</div>
 
-<section class="review-header">
+<!-- CAROUSEL -->
+<div class="container" style="max-width:680px; position:relative;">
 
-    <h1>Guest Reviews</h1>
+<div id="reviewCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
 
-    <p>
-        Discover what our guests have to say about their stay with BestStays.
-    </p>
+    <div class="carousel-inner">
 
-    <div class="rating-box">
-        ⭐⭐⭐⭐⭐
-        <br>
-        <strong>4.8 / 5 Rating</strong>
-        <br>
-        Based on 1,200+ verified reviews
+        <!-- 1 -->
+        <div class="carousel-item active">
+            <div class="review-card">
+                <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Emma">
+                <h5>Emma</h5>
+                <p class="unit-label">Family Suite</p>
+                <p class="stars">★★★★★</p>
+                <p class="review-text">Very clean and comfortable stay with family. Peaceful environment and very relaxing experience.</p>
+            </div>
+        </div>
+
+        <!-- 2 -->
+        <div class="carousel-item">
+            <div class="review-card">
+                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah">
+                <h5>Sarah</h5>
+                <p class="unit-label">Studio Room</p>
+                <p class="stars">★★★★☆</p>
+                <p class="review-text">Fast Wi-Fi and quiet environment. Perfect for work trip and long stay.</p>
+            </div>
+        </div>
+
+        <!-- 3 -->
+        <div class="carousel-item">
+            <div class="review-card">
+                <img src="https://randomuser.me/api/portraits/men/65.jpg" alt="Michael">
+                <h5>Michael</h5>
+                <p class="unit-label">Luxury Unit</p>
+                <p class="stars">★★★★★</p>
+                <p class="review-text">Amazing sea view and premium facilities. Perfect romantic getaway.</p>
+            </div>
+        </div>
+
+        <!-- 4 -->
+        <div class="carousel-item">
+            <div class="review-card">
+                <img src="https://randomuser.me/api/portraits/women/28.jpg" alt="Olivia">
+                <h5>Olivia</h5>
+                <p class="unit-label">Heritage Shophouse</p>
+                <p class="stars">★★★★★</p>
+                <p class="review-text">Stylish interior and smooth check-in. Highly recommended.</p>
+            </div>
+        </div>
+
+        <!-- 5 -->
+        <div class="carousel-item">
+            <div class="review-card">
+                <img src="https://randomuser.me/api/portraits/men/21.jpg" alt="Daniel Wong">
+                <h5>Daniel Wong</h5>
+                <p class="unit-label">Seaview Condo</p>
+                <p class="stars">★★★★☆</p>
+                <p class="review-text">Good location, comfortable bed, great value for money.</p>
+            </div>
+        </div>
+
     </div>
 
-</section>
+    <!-- ARROWS -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#reviewCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+    </button>
 
-<!-- REVIEWS -->
-
-<section class="review-section">
-
-<div class="container">
-
-<div class="row g-4">
-
-<div class="col-md-4">
-    <div class="review-card text-center">
-        <img src="https://randomuser.me/api/portraits/women/32.jpg" class="review-img">
-        <h5>Emma</h5>
-        <p class="review-type">Family Suite</p>
-        <p class="star">★★★★★</p>
-        <p>
-            Very clean and comfortable stay with family. The environment was peaceful and perfect for a relaxing holiday.
-        </p>
-    </div>
-</div>
-
-<div class="col-md-4">
-    <div class="review-card text-center">
-        <img src="https://randomuser.me/api/portraits/women/44.jpg" class="review-img">
-        <h5>Sarah</h5>
-        <p class="review-type">Studio Room</p>
-        <p class="star">★★★★☆</p>
-        <p>
-            Fast Wi-Fi and quiet surroundings made it ideal for my work trip. Everything was well maintained.
-        </p>
-    </div>
-</div>
-
-<div class="col-md-4">
-    <div class="review-card text-center">
-        <img src="https://randomuser.me/api/portraits/men/65.jpg" class="review-img">
-        <h5>Michael</h5>
-        <p class="review-type">Luxury Unit</p>
-        <p class="star">★★★★★</p>
-        <p>
-            Amazing sea view and premium facilities. The balcony sunset was the highlight of our stay.
-        </p>
-    </div>
-</div>
-
-<div class="col-md-4">
-    <div class="review-card text-center">
-        <img src="https://randomuser.me/api/portraits/women/28.jpg" class="review-img">
-        <h5>Olivia</h5>
-        <p class="review-type">Heritage Shophouse</p>
-        <p class="star">★★★★★</p>
-        <p>
-            Stylish interior and smooth check-in process. Highly recommended for anyone visiting the city.
-        </p>
-    </div>
-</div>
-
-<div class="col-md-4">
-    <div class="review-card text-center">
-        <img src="https://randomuser.me/api/portraits/men/21.jpg" class="review-img">
-        <h5>Daniel Wong</h5>
-        <p class="review-type">Seaview Condo</p>
-        <p class="star">★★★★☆</p>
-        <p>
-            Convenient location with nearby restaurants and shops. Great value for money.
-        </p>
-    </div>
-</div>
-
-<div class="col-md-4">
-    <div class="review-card text-center">
-        <img src="https://randomuser.me/api/portraits/men/41.jpg" class="review-img">
-        <h5>Jason Lee</h5>
-        <p class="review-type">Deluxe Apartment</p>
-        <p class="star">★★★★★</p>
-        <p>
-            Spacious rooms, friendly host and excellent cleanliness. One of the best stays I've experienced.
-        </p>
-    </div>
-</div>
+    <button class="carousel-control-next" type="button" data-bs-target="#reviewCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+    </button>
 
 </div>
-
 </div>
 
-</section>
-
-<!-- SUMMARY -->
-
-<section class="summary-section">
-
-<div class="container">
-
-<div class="row">
-
-<div class="col-md-4">
-    <div class="summary-box">
-        <h2>4.8</h2>
-        <p>Average Rating</p>
-    </div>
-</div>
-
-<div class="col-md-4">
-    <div class="summary-box">
-        <h2>1200+</h2>
-        <p>Verified Reviews</p>
-    </div>
-</div>
-
-<div class="col-md-4">
-    <div class="summary-box">
-        <h2>96%</h2>
-        <p>Guest Satisfaction</p>
-    </div>
-</div>
-
-</div>
-
-</div>
-
-</section>
-
+<!-- FOOTER - exact index.html -->
 <footer>
     © 2026 Beststays.com. BERC2393 Assignment.
 </footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>
